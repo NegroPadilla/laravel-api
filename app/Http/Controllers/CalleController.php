@@ -32,5 +32,38 @@ class CalleController extends Controller
             ->get();
         return response()->join($respuesta);
     }
+
+    public function addCalle(Request $request){
+        $calles = new calles();
+        $calles->Nombre_Calle = $request->input('Nombre_Calle');
+        $calles->idCiudad = $respuest->input('idCiudad');
+        $calles->save();
+        return response()->json($calles);
+    }
+
+    public function updateCalle(Request $request, $id){
+        $calles = calles::find($id);
+        if(!calles){
+            return response()->json(['mensaje' -> 'No se encuentra la calle'], 404);
+        }
+        return response()->json($calles);
+    }
+
+    public function geteCalle($id){
+        $calles = calle::find($id);
+        if(!calles){
+            return response()->json(['mensaje' -> 'No se encuentra la calle'], 404);
+        }
+        return response()->json(['mensaje'-> 'Se elimino la calle'], 204);
+    }
+
+    public function deleteCalle($id){
+        $calles = calle::find($id);
+        if(!calles){
+            return response()->json(['mensaje' -> 'No se encuentra la calle'], 404);
+        }
+        $calles->delete();
+        return response()->json(['mensaje'-> 'Se elimino la calle'], 204);
+    }
 }
     

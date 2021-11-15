@@ -34,7 +34,7 @@ class CiudadController extends Controller
         return response()->json($ciudad, 200);
     }
 
-    public function getCiudades($id){
+    public function getCiudad($id){
         $ciudad = ciudades::find($id);
         if(!$ciudad){
             return response()->json(['mensaje' -> 'No se encuentra la ciudad con el id: ' . $id], 404);

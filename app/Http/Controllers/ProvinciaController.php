@@ -34,7 +34,7 @@ class ProvinciaController extends Controller
         return response()->json($provincia, 200);
     }
 
-    public function getProvincias($id){
+    public function getProvincia($id){
         $provincia = provincias::find($id);
         if(!$provincia){
             return response()->json(['mensaje' -> 'No se encuentra la provincia con el id: ' . $id], 404);
