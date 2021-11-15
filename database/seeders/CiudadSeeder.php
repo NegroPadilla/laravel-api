@@ -17,7 +17,7 @@ class CiudadSeeder extends Seeder
         $ciudades=[
             ["Concepcion", 1],
             ["Arauco", 2],
-            ["coboquecura", 3],
+            ["cobquecura", 3],
             ["Chillan", 4],
             ["Temuco", 5],
             ["Victoria", 6]
