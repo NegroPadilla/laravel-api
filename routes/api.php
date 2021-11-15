@@ -18,21 +18,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('regiones','app\Http\Controllers\RegionController@getRegiones');
-Route::get('regiones/{id}','app\Http\Controllers\RegionController@getRegion');
+Route::get('regiones','App\Http\Controllers\RegionController@getRegiones');
+Route::get('regiones/{id}','App\Http\Controllers\RegionController@getRegion');
 
-Route::get('provincias','app\Http\Controllers\ProvinciaControllerr@getProvincias');
-Route::get('provincias/{id}','app\Http\Controllers\ProvinciaControllerr@getProvincia');
-Route::get('provincias/region/{id}','app\Http\Controllers\ProvinciaControllerr@getProvinciasRegion');
+Route::get('provincias','App\Http\Controllers\ProvinciaController@getProvincias');
+Route::get('provincias/{id}','App\Http\Controllers\ProvinciaController@getProvincia');
+Route::get('provincias/region/{id}','App\Http\Controllers\ProvinciaControllerr@getProvinciasRegion');
 
-Route::get('ciudades','app\Http\Controllers\CiudadControllerr@getCiudades');
-Route::get('ciudades/{id}','app\Http\Controllers\CiudadControllerr@getCiudad');
-Route::get('ciudades/provincia/{id}','app\Http\Controllers\CiudadControllerr@getCiudadesProvincias');
+Route::get('ciudades','App\Http\Controllers\CiudadController@getCiudades');
+Route::get('ciudades/{id}','App\Http\Controllers\CiudadControllerr@getCiudad');
+Route::get('ciudades/provincia/{id}','App\Http\Controllers\CiudadControllerr@getCiudadesProvincias');
 
-Route::get('calles','app\Http\Controllers\CalleControllerr@getCalles');
-Route::get('calles/{id}','app\Http\Controllers\CalleControllerr@getCalle');
-Route::get('calles/id/{id}','app\Http\Controllers\CalleControllerr@getCallesNom');
-Route::get('calles/get/{id}','app\Http\Controllers\CalleControllerr@getCallesData');
-Route::post('calles','app\Http\Controllers\CalleControllerr@addCalle');
-Route::put('calles/{id}','app\Http\Controllers\CalleControllerr@gupdateCalle');
-Route::delete('calles/{id}','app\Http\Controllers\CalleControllerr@deleteCalles');
+Route::get('calles','App\Http\Controllers\CalleController@getCalles');
+Route::get('calles/{id}','App\Http\Controllers\CalleController@getCalle');
+Route::get('calles/id/{id}','App\Http\Controllers\CalleController@getCallesNom');
+Route::get('calles/get/{id}','App\Http\Controllers\CalleController@getCallesData');
+Route::post('calles','App\Http\Controllers\CalleController@addCalle');
+Route::put('calles/{id}','App\Http\Controllers\CalleController@gupdateCalle');
+Route::delete('calles/{id}','App\Http\Controllers\CalleController@deleteCalles');

@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Calles;
 
 class CalleController extends Controller
 {
 
     public function getCalles(){
-        $calles = calles::all();
+        $calles = Calles::all();
          return response()->json($calles);
     }
 
     public function getCallesNom($id){
-        $respuesta = calles::join('ciudades', 'calles.idCiudad', '-', 'ciudades.id')
+        $respuesta = Calles::join('ciudades', 'calles.idCiudad', '-', 'ciudades.id')
             ->join('provincias', 'calles.idProvincia', '-', 'provincias.id')
             ->join('regiones', 'calles.idRegion', '-', 'regiones.id')
             ->where('calles.id','-', $id)
@@ -23,7 +24,7 @@ class CalleController extends Controller
     }
 
     public function getCallesData(){
-        $respuesta = calles::join('ciudades', 'calles.idCiudad', '-', 'ciudades.id')
+        $respuesta = Calles::join('ciudades', 'calles.idCiudad', '-', 'ciudades.id')
             ->join('provincias', 'calles.idProvincia', '-', 'provincias.id')
             ->join('regiones', 'calles.idRegion', '-', 'regiones.id')
             ->where('calles.id','-', $id)
@@ -34,7 +35,7 @@ class CalleController extends Controller
     }
 
     public function addCalle(Request $request){
-        $calles = new calles();
+        $calles = new Calles();
         $calles->Nombre_Calle = $request->input('Nombre_Calle');
         $calles->idCiudad = $respuest->input('idCiudad');
         $calles->save();
@@ -42,28 +43,28 @@ class CalleController extends Controller
     }
 
     public function updateCalle(Request $request, $id){
-        $calles = calles::find($id);
-        if(!calles){
-            return response()->json(['mensaje' -> 'No se encuentra la calle'], 404);
+        $calles = Calles::find($id);
+        if(!$calles){
+            return response()->json(['mensaje' => 'No se encuentra la calle'], 404);
         }
         return response()->json($calles);
     }
 
     public function geteCalle($id){
-        $calles = calle::find($id);
-        if(!calles){
-            return response()->json(['mensaje' -> 'No se encuentra la calle'], 404);
+        $calles = Calle::find($id);
+        if(!$calles){
+            return response()->json(['mensaje' => 'No se encuentra la calle'], 404);
         }
-        return response()->json(['mensaje'-> 'Se elimino la calle'], 204);
+        return response()->json(['mensaje'=> 'Se elimino la calle'], 204);
     }
 
     public function deleteCalle($id){
-        $calles = calle::find($id);
-        if(!calles){
-            return response()->json(['mensaje' -> 'No se encuentra la calle'], 404);
+        $calles = Calle::find($id);
+        if(!$calles){
+            return response()->json(['mensaje' => 'No se encuentra la calle'], 404);
         }
         $calles->delete();
-        return response()->json(['mensaje'-> 'Se elimino la calle'], 204);
+        return response()->json(['mensaje'=> 'Se elimino la calle'], 204);
     }
 }
     
