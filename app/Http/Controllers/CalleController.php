@@ -50,7 +50,7 @@ class CalleController extends Controller
         return response()->json($calles);
     }
 
-    public function geteCalle($id){
+    public function getCalle($id){
         $calles = Calle::find($id);
         if(!$calles){
             return response()->json(['mensaje' => 'No se encuentra la calle'], 404);
