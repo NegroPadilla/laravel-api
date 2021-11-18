@@ -19,7 +19,8 @@ class ProvinciaController extends Controller
 
     public function addProvincia(Request $request){
         $provincia = new Provincias();
-        $provincia->Nombre_Provincia = $request->input('idRegion');
+        $provincia->Nombre_Provincia = $request->input('Nombre_Provincia');
+        $provincia->idRegion= $request->input('idRegion');
         $provinca->save();
         return response()->json($provincia, 201);
     }
@@ -27,7 +28,7 @@ class ProvinciaController extends Controller
     public function updateProvincia(Request $request, $id){
         $provincia = Provincias::find($id);
         if(!$provincia){
-            return response()->json(['mensaje'=>'No se encuantra la provincia con el id: ' . $id], 404);
+            return response()->json(['mensaje'=>'No se encuantra la provincia con el id: ' .$id], 404);
         }
         $provincia->Nombre_Provincia= $request->input('Nombre_Provincia');
         $provincia->idRegion= $request->input('idRegion');
@@ -38,7 +39,7 @@ class ProvinciaController extends Controller
     public function getProvincia($id){
         $provincia = Provincias::find($id);
         if(!$provincia){
-            return response()->json(['mensaje' => 'No se encuentra la provincia con el id: ' . $id], 404);
+            return response()->json(['mensaje' => 'No se encuentra la provincia con el id: ' .$id], 404);
         }
         return response()->json($provincia, 200);
     }
