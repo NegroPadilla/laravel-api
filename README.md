@@ -33,7 +33,7 @@ php artisan key:generate
 - Una vez generada la key y el archivo .env se procede a la configuración de este
 ## Configurar Base de datos
 
-- Posteriormente edite las credenciales de su base de datos
+- Posteriormente edite las credenciales de su base de datos en el archivo .env.example
 
 ```
 DB_CONNECTION=mysql
