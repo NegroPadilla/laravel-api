@@ -23,11 +23,11 @@ Route::get('regiones/{id}','App\Http\Controllers\RegionController@getRegion');
 
 Route::get('provincias','App\Http\Controllers\ProvinciaController@getProvincias');
 Route::get('provincias/{id}','App\Http\Controllers\ProvinciaController@getProvincia');
-Route::get('provincias/region/{id}','App\Http\Controllers\ProvinciaControllerr@getProvinciasRegion');
+Route::get('provincias/region/{id}','App\Http\Controllers\ProvinciaController@getProvinciasRegion');
 
 Route::get('ciudades','App\Http\Controllers\CiudadController@getCiudades');
-Route::get('ciudades/{id}','App\Http\Controllers\CiudadControllerr@getCiudad');
-Route::get('ciudades/provincia/{id}','App\Http\Controllers\CiudadControllerr@getCiudadesProvincias');
+Route::get('ciudades/{id}','App\Http\Controllers\CiudadController@getCiudad');
+Route::get('ciudades/provincia/{id}','App\Http\Controllers\CiudadController@getCiudadesProvincias');
 
 Route::get('calles','App\Http\Controllers\CalleController@getCalles');
 Route::get('calles/{id}','App\Http\Controllers\CalleController@getCalle');
