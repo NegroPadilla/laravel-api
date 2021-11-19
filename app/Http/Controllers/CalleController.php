@@ -27,7 +27,7 @@ class CalleController extends Controller
         $respuesta = Calles::join('ciudades', 'calles.idCiudad', '=', 'ciudades.id')
         ->join('provincias', 'ciudades.idProvincia', '=', 'provincias.id')
         ->join('regiones', 'provincias.idRegion', '=', 'regiones.id')
-            ->select('calles.*', 'ciudades.id as idCiudad', 'ciudades.Nombre_Ciudad', 'provincias.id as idProvincia', 
+            ->select('calles.Nombre_Calle', 'calles.id as idCalles' ,'ciudades.id as idCiudad', 'ciudades.Nombre_Ciudad', 'provincias.id as idProvincia', 
             'provincias.Nombre_Provincia', 'regiones.id as idRegion', 'regiones.Nombre_Region')
             ->get();
         return response()->json($respuesta);
@@ -36,7 +36,7 @@ class CalleController extends Controller
     public function addCalle(Request $request){
         $calles = new Calles();
         $calles->Nombre_Calle = $request->input('Nombre_Calle');
-        $calles->idCiudad = $respuest->input('idCiudad');
+        $calles->idCiudad = $request->input('idCiudad');
         $calles->save();
         return response()->json($calles);
     }
@@ -50,10 +50,13 @@ class CalleController extends Controller
     }
 
     public function getCalle($id){
-        $calles = Calles::find($id);
-        if(!$calles){
-            return response()->json(['mensaje' => 'No se encuentra la calle'], 404);
-        }
+        $calles = Calles::join('ciudades', 'calles.idCiudad', '=', 'ciudades.id')
+        ->join('provincias', 'ciudades.idProvincia', '=', 'provincias.id')
+        ->join('regiones', 'provincias.idRegion', '=', 'regiones.id')
+        ->where('calles.id', '=', $id)
+        ->select('calles.Nombre_Calle', 'calles.id as idCalles' ,'ciudades.id as idCiudad', 'ciudades.Nombre_Ciudad', 'provincias.id as idProvincia', 
+        'provincias.Nombre_Provincia', 'regiones.id as idRegion', 'regiones.Nombre_Region')
+        ->first();
         return response()->json($calles);
     }
 
