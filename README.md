@@ -48,7 +48,7 @@ DB_PORT=3306
 ```
 
 ```
-DB_DATABASE=pruebamp
+DB_DATABASE=laravel
 ```
 
 ```
