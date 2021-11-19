@@ -48,7 +48,7 @@ DB_PORT=3306
 ```
 
 ```
-DB_DATABASE=laravel
+DB_DATABASE=(nombre de su base de datos, en este caso laravel)
 ```
 
 ```
